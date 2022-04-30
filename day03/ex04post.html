@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form태그 >> 사용자가 입력한 input값을 서버로 보내기 위한 양식(목적지 설정, action 속성 이용) -->
+    <!-- Get방식: default설정(URL을 통해서 데이터를 전송해주는 방식, 보안상 문제있음, 데이터 길이 한계) -->
+    <h1>Get 방식</h1>
+    <form action="http://localhost:3006" method="get">
+        <input type="text" name="text">
+        <input type="submit" name="전송">
+    </form>
+
+    <!-- POST방식: 전송데이터 길이에 제한이 없음. Packet의 body부분에 담아서 전송, 보안성이 뛰어남. -->
+    <h1>Post 방식</h1>
+    <form action="http://localhost:3006" method="post">
+        <input type="text" name="id" placeholder="아이디 입력">
+        <input type="text" name="pw" placeholder="패스워드 입력">
+        <input type="submit" value="확인">
+    </form>
+
+</body>
+</html>

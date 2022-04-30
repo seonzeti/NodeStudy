@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: -apple-system;
+        }
+        caption{
+            background-color: rgb(151, 196, 255);
+        }
+
+        table{
+            background-color: rgb(224, 236, 255);
+        }
+        caption,table,td{
+            border: 1px solid whitesmoke;        
+        }
+        td:first-child{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="http://localhost:3000" method="post">
+        <table>
+            <caption>
+                ABOUT ME ☁️
+            </caption>
+            <tr>
+                <td>ID</td>
+                <td><input type="text" name="id"></td>
+            </tr>
+            <tr>
+                <td>PW</td>
+                <td><input type="password" name="pw"></td>
+            </tr>
+            <tr>
+                <td>NAME</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>EMAIL</td>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>TEL</td>
+                <td><input type="tel" name="tel"></td>
+            </tr>
+            <tr>
+                <td>GENDER</td>
+                <td>
+                    man <input type="radio" name="gender" value="man">
+                    woman <input type="radio" name="gender" value="woman">
+                </td>
+            </tr>
+            <tr>
+                <td>HOBBY</td>
+                <td><input type="text" name="hobby"></td>
+            </tr>
+            <tr>
+                <td>BIRTHDAY</td>
+                <td><input type="date" name="bdate"></td>
+            </tr>
+            <tr>
+                <td>FAV COLOR</td>
+                <td><input type="color" name="color"></td>
+            </tr>
+            <tr>
+                <td>FAV SUB</td>
+                <td>
+                    <select name="subject">
+                        <option>WEB</option>
+                        <option>JAVA</option>
+                        <option>Python</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>TALK</td>
+                <td>
+                    <textarea name="talk" cols="30" rows="10"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="보내기">
+                    <input type="reset" value="다시쓰기">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
