@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- html에서 서버로 보내기위한 3가지 조건 -->
+    <!-- 1. form태그에 action 속성을 넣어주어야 함.-->
+    <form action="http://127.0.0.1:3000/plus" method="get">
+        <!--어떤 서버로 보낼건지에 대한 설정 : 서버페이지l의 주소-->
+
+        <!-- 2. 어떤 방식으로 보내줄 건지? method -->
+        <!-- form태그 >> 사용자가 입력한 input값을 서버로 보내기 위한 양식(목적지 설정, action 속성 이용) -->
+        <!-- Get방식: default설정(URL을 통해서 데이터를 전송해주는 방식, 보안상 문제있음, 데이터 길이 한계) -->
+        <!-- POST방식: 전송데이터 길이에 제한이 없음. Packet의 body부분에 담아서 전송, 보안성이 뛰어남. -->
+
+        <!-- 3. input태그에 name속성: input 태그의 이름표 작성  -->
+        <input type="text" name="num1">
+
+        <!-- (after) -->
+        <select name="opr">
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+
+        <input type="text" name="num2">
+        <!-- 4. input 태그의 type 속성 중 submit 값: 서버페이지로 값을 보내기 위한 버튼 -->
+        <input type="submit" value="전송">
+    </form>    
+</body>
+</html>

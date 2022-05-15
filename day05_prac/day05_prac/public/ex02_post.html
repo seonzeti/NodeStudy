@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- POST방식: 전송데이터 길이에 제한이 없음. Packet의 body부분에 담아서 전송, 보안성이 뛰어남. -->
+    <h1>Post 방식</h1>
+    <form action="http://127.0.0.1:3000/post" method="post">
+        <input type="text" name="id" placeholder="아이디 입력">
+        <input type="text" name="pw" placeholder="패스워드 입력">
+        <input type="submit" value="확인">
+    </form>
+
+</body>
+</html>

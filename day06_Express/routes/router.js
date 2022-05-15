@@ -4,20 +4,19 @@ const router = express.Router();
 const conn = require('../config/DB.js');
 
 
+//로그인
 router.post("/login",function(request,response){
     let id = request.body.id;
     let pw = request.body.pw;
 
-    // 사용자가 입력한 ID가 smart 고, pw가 1234라면 'loginS.html' 페이지로 이동 
-    // 그게 아니라면 LoginF.html 페이지로 이동하시오
-
-    if(id == 'smart' && pw == '1234'){
-        response.redirect('http://127.0.0.1:5500/day06_Express/public/02_LoginS.html');
-    } else {
-        response.redirect('http://127.0.0.1:5500/day06_Express/public/01_LoginF.html');
-    }
-
-    response.end();
+    let sql = "select * from nodejs_member where id = ? and pw = ?";
+    conn.query(sql,[id,pw],function(err, rows){
+        if(rows.length > 0){
+            response.redirect('http://127.0.0.1:5500/public/02_LoginS.html');
+        } else { 
+            response.redirect('http://127.0.0.1:5500/public/01_LoginF.html');
+        }
+    });
 
     
 })
@@ -64,6 +63,26 @@ router.post("/delete",function(request,response){
         if(rows){
             console.log('삭제성공');
             response.redirect('http://127.0.0.1:5500/public/04_Main.html');
+
+        }else {
+            console.log('삭제 실패!')
+        }
+    });
+
+    
+})
+
+// 버튼으로 회원 삭제 
+router.get("/btndelete",function(request,response){
+    console.log('btn delete 라우터');
+
+    let id = request.query.id;
+    console.log('삭제할 ID값 : '+id)
+    let sql = "delete from nodejs_member where id = ?";
+    conn.query(sql,[id],function(err, rows){
+        if(rows){ 
+            console.log('삭제성공');
+            response.redirect('http://127.0.0.1:3000/select');
 
         }else {
             console.log('삭제 실패!')
@@ -129,12 +148,13 @@ router.get("/select",function(request,response){
             response.write('<html><body><table border=1px solid black>')
             
             response.write('<caption>회원 전체 검색</caption>')
-            response.write('<tr><th>아이디</th><th>비밀번호</th><th>닉네임</th></tr>');
+            response.write('<tr><th>아이디</th><th>비밀번호</th><th>닉네임</th><th>삭제여부</th></tr>');
             
             for (let i = 0; i < rows.length; i++) {
                 response.write(`<tr><td>${rows[i].id}</td>`)
                 response.write(`<td>${rows[i].pw}</td>`)
-                response.write(`<td>${rows[i].nick}</td></tr>`)
+                response.write(`<td>${rows[i].nick}</td>`)
+                response.write(`<td><a href= "http://127.0.0.1:3000/btndelete?id=${rows[i].id}"><button>삭제</button></a></td></tr>`)
             }
             response.write('</table></body></html>')
 
